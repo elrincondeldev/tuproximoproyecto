@@ -19,90 +19,53 @@ function TermsAndConditionsNewsletter() {
         <h2 className="text-lg font-bold mb-4">Términos y Condiciones</h2>
         <div className="overflow-y-auto max-h-80">
           <p className="text-sm text-left">
-            <strong>1. Participación:</strong>
+            <strong>1. Aceptación de Términos:</strong>
             <br />
-            - La hackathon está abierta a participantes de todo el mundo.
-            <br />
-            - Para participar en el sorteo de una plaza para el bootcamp de
-            4Geeks Academy, los participantes deben presentar un proyecto
-            completo durante el periodo de la hackathon.
-            <br />
-            - Para participar en el sorteo del pack de productos de Logitech,
-            los participantes deben presentar un proyecto completo y residir en
-            España en el momento de la participación.
+            - Al suscribirte a nuestra newsletter, aceptas automáticamente estos
+            términos y condiciones. Si no estás de acuerdo con alguno de estos
+            términos, por favor abstente de suscribirte.
             <br />
             <br />
-            <strong>2. Proyectos:</strong>
+            <strong>2. Contenido de la Newsletter:</strong>
             <br />
-            - Los proyectos presentados deben ser originales y creados durante
-            el periodo de la hackathon, no se pueden hacer commit al
-            respositorio de github antes de la fecha de inicio de la hackathon,
-            ni después de la fecha de finalización.
-            <br />
-            - Los participantes son responsables de obtener los derechos y
-            autorizaciones necesarios para cualquier material utilizado en sus
-            proyectos.
-            <br />
-            - El incumplimiento de estos términos y condiciones puede resultar
-            en la descalificación del proyecto y la eliminación de la
-            participación en los sorteos.
+            - La newsletter de El Rincón del Dev se enviará semanalmente a la
+            dirección de correo electrónico proporcionada durante la
+            suscripción. El contenido incluirá proyectos de desarrollo, noticias
+            relevantes del mundo tecnológico y actualizaciones de mis redes
+            sociales.
             <br />
             <br />
-            <strong>3. Sorteos:</strong>
+            <strong>3. Uso de Datos:</strong>
             <br />
-            - El sorteo de la plaza para el bootcamp se realizará de forma
-            aleatoria entre todos los proyectos completos y válidos presentados
-            durante la hackathon.
-            <br />
-            - El sorteo del pack de productos de Logitech se realizará de forma
-            aleatoria entre todos los proyectos completos y válidos presentados
-            por participantes que residan en España.
-            <br />
-            - Los ganadores serán contactados a través de los datos
-            proporcionados durante la inscripción en la hackathon. Si un ganador
-            no responde en un plazo de 7 días, se seleccionará otro ganador de
-            manera aleatoria.
-            <br />
-            - Los premios no pueden ser canjeados por su valor en efectivo u
-            otro premio.
+            - Al suscribirte a esta newsletter, aceptas que El Rincón del Dev
+            pueda utilizar tu dirección de correo electrónico para enviar
+            contenido relacionado con la newsletter y sus redes sociales. Tus
+            datos personales nunca serán vendidos, compartidos o utilizados con
+            fines comerciales por terceros.
             <br />
             <br />
-            <strong>4. Protección de Datos:</strong>
+            <strong>4. Cancelación de Suscripción:</strong>
             <br />
-            - Al participar en la hackathon, los participantes aceptan que el
-            Organizador pueda utilizar sus datos personales para los fines de la
-            hackathon y los sorteos.
-            <br />
-            - Los datos personales de los participantes serán tratados de
-            acuerdo con la normativa vigente sobre protección de datos y no
-            serán compartidos con terceros sin consentimiento previo.
-            <br />
-            - El Organizador se reserva el derecho de publicar los nombres de
-            los ganadores en sus redes sociales y página web.
+            - Puedes cancelar tu suscripción a la newsletter en cualquier
+            momento utilizando el enlace proporcionado al final de cada correo
+            electrónico. Tu solicitud de cancelación se procesará de inmediato.
             <br />
             <br />
-            - El Organizador podrá utilizar los correos electrónicos de los
-            participantes para enviar información sobre futuras ediciones de la
-            hackathon, así como otras promociones y eventos organizados por el
-            Organizador.
+            <strong>5. Modificaciones:</strong>
             <br />
-            <strong>5. Disposiciones Generales:</strong>
-            <br />
-            - El Organizador se reserva el derecho de modificar estos términos y
-            condiciones en cualquier momento, con aviso previo a los
-            participantes.
-            <br />
-            - El Organizador se reserva el derecho de descalificar a cualquier
-            participante que incumpla estos términos y condiciones o que se
-            comporte de manera inapropiada durante la hackathon.
-            <br />
-            - Al participar en la hackathon, los participantes aceptan cumplir
-            con todas las reglas y decisiones del Organizador.
+            - El Rincón del Dev se reserva el derecho de modificar estos
+            términos y condiciones en cualquier momento. Las modificaciones
+            entrarán en vigor inmediatamente después de su publicación en esta
+            página.
             <br />
             <br />
-            Al participar en la hackathon{" "}
-            <strong>"La Hackathon Del Dev"</strong>, los participantes aceptan
-            todos los términos y condiciones establecidos anteriormente.
+            <strong>5. Contacto:</strong>
+            <br />
+            - Si tienes alguna pregunta, comentario o inquietud sobre estos
+            términos y condiciones, por favor contáctame a través de mis redes
+            sociales o enviando un correo electrónico a jrmh.buisness@gmail.com.
+            <br />
+            <br />
           </p>
         </div>
         <button
