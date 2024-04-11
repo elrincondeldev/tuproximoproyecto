@@ -6,7 +6,7 @@ function Project(props: {
 }) {
   return (
     <div className="grid md:grid-cols-[0.2fr_1.5fr] gap-5">
-      <div className="flex items-center justify-center h-[70px] bg-[#FFD59A] border-[#A56021] border-[1px] p-2 rounded-md">
+      <div className="flex items-center justify-center h-20 w-20 bg-[#FFD59A] border-[#A56021] border-[1px] p-3 rounded-md">
         <img src={`/images/${props.category}.svg`} alt="" />
       </div>
       <div className="flex flex-col gap-3 text-left">
