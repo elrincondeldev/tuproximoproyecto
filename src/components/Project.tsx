@@ -3,10 +3,9 @@ function Project(props: {
   description: string;
   type: boolean;
   category: string;
-  index: number;
 }) {
   return (
-    <div className="grid md:grid-cols-[0.2fr_1.5fr] gap-5" key={props.index}>
+    <div className="grid md:grid-cols-[0.2fr_1.5fr] gap-5">
       <div className="flex items-center justify-center h-[70px] bg-[#FFD59A] border-[#A56021] border-[1px] p-2 rounded-md">
         <img src={`/images/${props.category}.svg`} alt="" />
       </div>

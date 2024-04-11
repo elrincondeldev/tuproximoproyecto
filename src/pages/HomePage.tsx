@@ -12,7 +12,7 @@ function HomePage() {
     <Router>
       <main className="">
         <NavBar />
-        <section className="grid md:grid-cols-[0.5fr_1fr_0.5fr] max-w-[1400px] m-auto mt-5 gap-5">
+        <section className="grid md:grid-cols-[0.5fr_1fr_0.5fr] max-w-[1600px] m-auto mt-5 gap-5">
           <LeftBar />
           <Routes>
             <Route path="/" element={<ProjectsContainer />} />

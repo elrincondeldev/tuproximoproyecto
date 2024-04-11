@@ -2,21 +2,26 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Project from "../Project";
 
-describe("Project Component", () => {
-  it("renders correctly", () => {
+describe("Project component", () => {
+  it("Should render the project component", () => {
     render(
       <Project
-        index={1}
-        name="Test Project"
-        description="This is a test project"
+        name="Project name"
+        description="Project description"
         type={true}
-        category="frontend"
+        category="category"
+        index={0}
       />
     );
-    expect(screen.getByText("Test Project")).toBeInTheDocument();
-    expect(screen.getByText("This is a test project")).toBeInTheDocument();
-    expect(
-      screen.getByText("Generado por inteligencia artificial")
-    ).toBeInTheDocument();
+
+    const projectName = screen.getByText("Project name");
+    const projectDescription = screen.getByText("Project description");
+    const projectType = screen.getByText(
+      "Generado por inteligencia artificial"
+    );
+
+    expect(projectName).toBeInTheDocument();
+    expect(projectDescription).toBeInTheDocument();
+    expect(projectType).toBeInTheDocument();
   });
 });

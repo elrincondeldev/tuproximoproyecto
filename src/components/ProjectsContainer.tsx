@@ -1,22 +1,30 @@
 import Project from "./Project";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { projectsService } from "../services/projects.service";
-
-type Project = {
-  name: string;
-  description: string;
-  type: boolean;
-  category: string;
-};
+import { useValueStore } from "../store/valueStore";
 
 function ProjectsContainer() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const { navBarProjects, setProjects, projects, query } = useValueStore(
+    (state) => ({
+      navBarProjects: state.navBarProjects,
+      setProjects: state.setProjects,
+      projects: state.projects,
+      query: state.query,
+    })
+  );
 
   useEffect(() => {
-    projectsService.getAllProjects().then((response: Project[]) => {
-      setProjects(response);
-    });
-  }, []);
+    const fetchData = async () => {
+      try {
+        const projectsData = await projectsService.getAllProjects();
+        setProjects(projectsData?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [setProjects]);
 
   return (
     <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
@@ -24,18 +32,36 @@ function ProjectsContainer() {
         Todos los proyectos
       </p>
       <hr className="mb-5" />
-      {projects.map((project, index) => (
+      {query.length >= 1 ? (
         <>
-          <Project
-            index={index + 1}
-            name={project.name}
-            description={project.description}
-            type={project.type}
-            category={project.category}
-          />
-          <hr className="my-5" />
+          {navBarProjects.map((project, index) => (
+            <div key={index}>
+              <Project
+                name={project.name}
+                description={project.description}
+                type={project.type}
+                category={project.category}
+              />
+              <hr className="my-5" />
+            </div>
+          ))}
         </>
-      ))}
+      ) : (
+        <>
+          {" "}
+          {projects.map((project, index) => (
+            <div key={index}>
+              <Project
+                name={project.name}
+                description={project.description}
+                type={project.type}
+                category={project.category}
+              />
+              <hr className="my-5" />
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }
