@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { projectsService } from "../services/projects.service";
 import { useValueStore } from "../store/valueStore";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 function NavBar() {
   const { setNavBarProjects } = useValueStore((state) => ({
@@ -45,6 +51,14 @@ function NavBar() {
           className="bg-[#D9D9D9] rounded-md h-[40px] p-3"
           placeholder="Busca un proyecto..."
         />
+        <div className="m-auto">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
       </section>
     </nav>
   );

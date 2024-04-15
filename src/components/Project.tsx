@@ -3,9 +3,10 @@ function Project(props: {
   description: string;
   type: boolean;
   category: string;
+  votes: number;
 }) {
   return (
-    <div className="grid md:grid-cols-[0.2fr_1.5fr] gap-5">
+    <div className="grid md:grid-cols-[0.2fr_3fr_0.2fr] gap-5">
       <div className="flex items-center justify-center h-20 w-20 bg-[#FFD59A] border-[#A56021] border-[1px] p-3 rounded-md">
         <img src={`/images/${props.category}.svg`} alt="" />
       </div>
@@ -21,6 +22,10 @@ function Project(props: {
           </p>
         </div>
       </div>
+      <button className="flex flex-col items-center justify-center h-20 w-20 bg-[#FFD59A] border-[#A56021] border-[1px] p-3 rounded-md">
+        <img src="/images/arrow.svg" alt="" className="h-1/3" />
+        <p className="text-xl">{props.votes}</p>
+      </button>
     </div>
   );
 }

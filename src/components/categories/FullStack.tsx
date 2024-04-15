@@ -48,6 +48,7 @@ function Fullstack() {
                 description={project.description}
                 type={project.type}
                 category={project.category}
+                votes={project.votes}
               />
               <hr className="my-5" />
             </div>
@@ -62,6 +63,7 @@ function Fullstack() {
                 description={project.description}
                 type={project.type}
                 category={project.category}
+                votes={project.votes}
               />
               <hr className="my-5" />
             </div>

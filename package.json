@@ -11,6 +11,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^4.30.10",
+    "@clerk/themes": "^1.7.12",
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

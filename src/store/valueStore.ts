@@ -5,6 +5,7 @@ type Project = {
   description: string;
   type: boolean;
   category: string;
+  votes: number;
 };
 
 export interface Values {
