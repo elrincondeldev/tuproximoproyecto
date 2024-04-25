@@ -6,13 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Frontend from "../components/categories/Frontend";
 import Backend from "../components/categories/Backend";
 import FullStack from "../components/categories/FullStack";
+import Footer from "../components/Footer";
 
 function HomePage() {
   return (
     <Router>
-      <main className="">
+      <main className="min-h-screen">
         <NavBar />
-        <section className="grid md:grid-cols-[0.5fr_1fr_0.5fr] max-w-[1600px] m-auto mt-5 gap-5">
+        <section className="px-5 grid md:grid-cols-[0.5fr_1fr_0.5fr] max-w-[1600px] m-auto mt-5 gap-5">
           <LeftBar />
           <Routes>
             <Route path="/" element={<ProjectsContainer />} />
@@ -23,6 +24,7 @@ function HomePage() {
           <RightBar />
         </section>
       </main>
+      <Footer />
     </Router>
   );
 }

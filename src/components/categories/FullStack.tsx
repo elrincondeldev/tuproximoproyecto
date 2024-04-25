@@ -1,77 +1,95 @@
 import { useValueStore } from "../../store/valueStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { projectsService } from "../../services/projects.service";
 import Project from "../Project";
+import Loader from "../Loader";
 
-function Fullstack() {
-  const { navBarProjects, setProjects, projects, query } = useValueStore(
-    (state) => ({
+function FullStack() {
+  const { navBarProjects, setFullStackProjects, fullStackProjects, query } =
+    useValueStore((state) => ({
       navBarProjects: state.navBarProjects,
-      setProjects: state.setProjects,
-      projects: state.projects,
+      setFullStackProjects: state.setFullStackProjects,
+      fullStackProjects: state.fullStackProjects,
       query: state.query,
-    })
-  );
+    }));
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projectsData = await projectsService.getAllProjects();
-        setProjects(projectsData?.data);
+        const response = await projectsService.getFullStackProjects(
+          currentPage
+        );
+
+        setFullStackProjects((prevItems) => [...prevItems, ...response?.data]);
       } catch (error) {
         console.log(error);
       }
     };
+
     fetchData();
   }, []);
 
-  const fullstackProjects = projects.filter(
+  const navBarFullStackProjects = navBarProjects.filter(
     (project) => project.category === "fullstack"
   );
 
-  const navBarFullstackProjects = navBarProjects.filter(
-    (project) => project.category === "fullstack"
-  );
+  const handleShowMore = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
 
   return (
-    <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
-      <p className="satoshi-bold text-left text-2xl mb-3">
-        Proyectos de fullstack
-      </p>
-      <hr className="mb-5" />
-      {query.length >= 1 ? (
-        <>
-          {navBarFullstackProjects.map((project, index) => (
-            <div key={index}>
-              <Project
-                name={project.name}
-                description={project.description}
-                type={project.type}
-                category={project.category}
-                votes={project.votes}
-              />
-              <hr className="my-5" />
-            </div>
-          ))}
-        </>
+    <>
+      {fullStackProjects.length > 0 ? (
+        <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
+          <p className="satoshi-bold text-left text-2xl mb-3">
+            Proyectos fullstack
+          </p>
+          <hr className="mb-5" />
+          {query.length >= 1 ? (
+            <>
+              {navBarFullStackProjects.map((project, index) => (
+                <div key={index}>
+                  <Project
+                    name={project.name}
+                    description={project.description}
+                    type={project.type}
+                    category={project.category}
+                    votes={project.votes}
+                  />
+                  <hr className="my-5" />
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              {fullStackProjects.map((project, index) => (
+                <div key={index}>
+                  <Project
+                    name={project.name}
+                    description={project.description}
+                    type={project.type}
+                    category={project.category}
+                    votes={project.votes}
+                  />
+                  <hr className="my-5" />
+                </div>
+              ))}
+            </>
+          )}
+          <button
+            onClick={handleShowMore}
+            className="bg-[#FFD59A] border-[1px] border-[#A56021]  py-2 px-4 hover:bg-[#A56021] hover:text-white transition-all rounded-md mt-5"
+          >
+            Mostrar más
+          </button>
+        </div>
       ) : (
-        <>
-          {fullstackProjects.map((project, index) => (
-            <div key={index}>
-              <Project
-                name={project.name}
-                description={project.description}
-                type={project.type}
-                category={project.category}
-                votes={project.votes}
-              />
-              <hr className="my-5" />
-            </div>
-          ))}
-        </>
+        <Loader />
       )}
-    </div>
+    </>
   );
 }
 
-export default Fullstack;
+export default FullStack;

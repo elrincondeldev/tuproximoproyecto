@@ -6,7 +6,7 @@ function LeftBar() {
 
   return (
     <div>
-      <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
+      <div className="flex flex-col gap-3 bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
         <Link to="/">
           <Button
             buttonName="Todos los proyectos"

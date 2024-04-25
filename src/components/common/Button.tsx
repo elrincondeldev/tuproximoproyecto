@@ -8,7 +8,7 @@ function Button(props: {
       className={
         props.active
           ? "flex items-center gap-3 satoshi-bold text-xl p-3 rounded-md w-full bg-[#FFD59A]"
-          : "flex items-center gap-3 satoshi-bold text-xl p-3 rounded-md w-full"
+          : "flex items-center gap-3 satoshi-bold text-xl p-3 rounded-md w-full hover:bg-[#fff1de] ease-in-out transition-all"
       }
     >
       <img src={props.imageUrl} alt="category image" className="w-[30px]" />
