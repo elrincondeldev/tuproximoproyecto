@@ -20,7 +20,16 @@ function Backend() {
       try {
         const response = await projectsService.getBackendProjects(currentPage);
 
-        setBackendProjects((prevItems) => [...prevItems, ...response?.data]);
+        if (
+          response?.data.length > 0 &&
+          !backendProjects.some((project) =>
+            response?.data.some(
+              (newProject: { name: string }) => newProject.name === project.name
+            )
+          )
+        ) {
+          setBackendProjects((prevItems) => [...prevItems, ...response?.data]);
+        }
       } catch (error) {
         console.log(error);
       }

@@ -22,7 +22,19 @@ function FullStack() {
           currentPage
         );
 
-        setFullStackProjects((prevItems) => [...prevItems, ...response?.data]);
+        if (
+          response?.data.length > 0 &&
+          !fullStackProjects.some((project) =>
+            response?.data.some(
+              (newProject: { name: string }) => newProject.name === project.name
+            )
+          )
+        ) {
+          setFullStackProjects((prevItems) => [
+            ...prevItems,
+            ...response?.data,
+          ]);
+        }
       } catch (error) {
         console.log(error);
       }

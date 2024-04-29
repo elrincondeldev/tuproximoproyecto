@@ -7,6 +7,7 @@ import Frontend from "../components/categories/Frontend";
 import Backend from "../components/categories/Backend";
 import FullStack from "../components/categories/FullStack";
 import Footer from "../components/Footer";
+import AllProjects from "../components/categories/AllProjects";
 
 function HomePage() {
   return (
@@ -17,6 +18,7 @@ function HomePage() {
           <LeftBar />
           <Routes>
             <Route path="/" element={<ProjectsContainer />} />
+            <Route path="/todos-los-proyectos" element={<AllProjects />} />
             <Route path="/frontend" element={<Frontend />} />
             <Route path="/backend" element={<Backend />} />
             <Route path="/fullstack" element={<FullStack />} />

@@ -1,47 +1,46 @@
-import Project from "./Project";
+import Project from "../Project";
 import { useEffect, useState } from "react";
-import { projectsService } from "../services/projects.service";
-import { useValueStore } from "../store/valueStore";
+import { projectsService } from "../../services/projects.service";
+import { useValueStore } from "../../store/valueStore";
 import { useAuth } from "@clerk/clerk-react";
-import ProjectProposal from "./ProjectProposal";
-import Loader from "./Loader";
-import { ProjectInterface } from "../store/valueStore";
+import ProjectProposal from "../ProjectProposal";
+import Loader from "../Loader";
 
-function ProjectsContainer() {
+function AllProjects() {
   const token = useAuth();
 
-  const { navBarProjects, setTodayProjects, todayProjects, query } =
-    useValueStore((state) => ({
+  const { navBarProjects, setProjects, projects, query } = useValueStore(
+    (state) => ({
       navBarProjects: state.navBarProjects,
-      setTodayProjects: state.setTodayProjects,
-      todayProjects: state.todayProjects,
+      setProjects: state.setProjects,
+      projects: state.projects,
       query: state.query,
-    }));
+    })
+  );
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Dentro de ProjectsContainer
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await projectsService.getTodayProjects(currentPage);
+        const response = await projectsService.getAllProjects(currentPage);
 
         if (
           response?.data.length > 0 &&
-          !todayProjects.some((project) =>
+          !projects.some((project) =>
             response?.data.some(
               (newProject: { name: string }) => newProject.name === project.name
             )
           )
         ) {
-          setTodayProjects((prevItems) => [...prevItems, ...response?.data]);
+          setProjects((prevItems) => [...prevItems, ...response?.data]);
         }
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [currentPage, setTodayProjects, todayProjects]);
+  }, [currentPage]);
 
   const handleShowMore = () => {
     setCurrentPage((prev) => prev + 1);
@@ -49,7 +48,7 @@ function ProjectsContainer() {
 
   return (
     <>
-      {todayProjects.length > 0 ? (
+      {projects.length > 0 ? (
         <main className="flex flex-col gap-5">
           {token.userId ? (
             <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
@@ -58,7 +57,7 @@ function ProjectsContainer() {
           ) : null}
           <div className="bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
             <p className="satoshi-bold text-left text-2xl mb-3">
-              Proyectos de hoy - {new Date().toLocaleDateString()}
+              Todos los proyectos
             </p>
             <hr className="mb-5" />
             {query.length >= 1 ? (
@@ -78,7 +77,7 @@ function ProjectsContainer() {
               </>
             ) : (
               <>
-                {todayProjects.map((project, index) => (
+                {projects.map((project, index) => (
                   <div key={index}>
                     <Project
                       name={project.name}
@@ -108,4 +107,4 @@ function ProjectsContainer() {
   );
 }
 
-export default ProjectsContainer;
+export default AllProjects;

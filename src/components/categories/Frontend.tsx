@@ -20,7 +20,16 @@ function Frontend() {
       try {
         const response = await projectsService.getFrontendProjects(currentPage);
 
-        setFrontendProjects((prevItems) => [...prevItems, ...response?.data]);
+        if (
+          response?.data.length > 0 &&
+          !frontendProjects.some((project) =>
+            response?.data.some(
+              (newProject: { name: string }) => newProject.name === project.name
+            )
+          )
+        ) {
+          setFrontendProjects((prevItems) => [...prevItems, ...response?.data]);
+        }
       } catch (error) {
         console.log(error);
       }

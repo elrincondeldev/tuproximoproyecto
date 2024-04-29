@@ -1,25 +1,36 @@
 import { create } from "zustand";
 
-type Project = {
+export type ProjectInterface = {
   name: string;
   description: string;
   type: boolean;
   category: string;
   votes: number;
+  created_at: string;
 };
 
 export interface Values {
-  navBarProjects: Project[];
+  navBarProjects: ProjectInterface[];
   setNavBarProjects: (projects: []) => void;
-  projects: Project[];
-  setProjects: (update: (prevProjects: Project[]) => Project[]) => void;
-  frontendProjects: Project[];
-  setFrontendProjects: (update: (prevProjects: Project[]) => Project[]) => void;
-  backendProjects: Project[];
-  setBackendProjects: (update: (prevProjects: Project[]) => Project[]) => void;
-  fullStackProjects: Project[];
+  projects: ProjectInterface[];
+  setProjects: (
+    update: (prevProjects: ProjectInterface[]) => ProjectInterface[]
+  ) => void;
+  todayProjects: ProjectInterface[];
+  setTodayProjects: (
+    update: (prevProjects: ProjectInterface[]) => ProjectInterface[]
+  ) => void;
+  frontendProjects: ProjectInterface[];
+  setFrontendProjects: (
+    update: (prevProjects: ProjectInterface[]) => ProjectInterface[]
+  ) => void;
+  backendProjects: ProjectInterface[];
+  setBackendProjects: (
+    update: (prevProjects: ProjectInterface[]) => ProjectInterface[]
+  ) => void;
+  fullStackProjects: ProjectInterface[];
   setFullStackProjects: (
-    update: (prevProjects: Project[]) => Project[]
+    update: (prevProjects: ProjectInterface[]) => ProjectInterface[]
   ) => void;
   query: string;
   setQuery: (query: string) => void;
@@ -33,6 +44,12 @@ export const useValueStore = create<Values>((set) => ({
   projects: [],
   setProjects: (update) =>
     set((state) => ({ ...state, projects: update(state.projects) })),
+  todayProjects: [],
+  setTodayProjects: (update) =>
+    set((state) => ({
+      ...state,
+      todayProjects: update(state.todayProjects),
+    })),
   frontendProjects: [],
   setFrontendProjects: (update) =>
     set((state) => ({

@@ -13,6 +13,18 @@ export const projectsService = {
     }
   },
 
+  getTodayProjects: async (currentPage: number) => {
+    try {
+      const request = await axios.get(
+        `${process.env.API_URL}/projects/get-today-projects?page=${currentPage}`
+      );
+
+      return request;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   getFrontendProjects: async (currentPage: number) => {
     try {
       const request = await axios.get(

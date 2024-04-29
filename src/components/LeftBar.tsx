@@ -9,9 +9,16 @@ function LeftBar() {
       <div className="flex flex-col gap-3 bg-white border-[1px] border-[#E1E3E8] rounded-md p-5">
         <Link to="/">
           <Button
-            buttonName="Todos los proyectos"
+            buttonName="Proyectos de hoy"
             imageUrl="/images/Folder-open.svg"
             active={location.pathname === "/"}
+          />
+        </Link>
+        <Link to="/todos-los-proyectos">
+          <Button
+            buttonName="Todos los proyectos"
+            imageUrl="/images/Folder-open.svg"
+            active={location.pathname === "/todos-los-proyectos"}
           />
         </Link>
         <Link to="/frontend">
