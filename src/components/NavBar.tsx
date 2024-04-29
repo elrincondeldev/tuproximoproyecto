@@ -48,7 +48,7 @@ function NavBar() {
           type="search"
           name=""
           id=""
-          className="bg-[#D9D9D9] rounded-md p-3"
+          className=" rounded-md p-2 border-[1px] boredr-[#D9D9D9]"
           placeholder="Busca un proyecto..."
         />
         <div className="ml-auto ">
