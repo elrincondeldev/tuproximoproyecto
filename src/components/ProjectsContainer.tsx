@@ -5,7 +5,6 @@ import { useValueStore } from "../store/valueStore";
 import { useAuth } from "@clerk/clerk-react";
 import ProjectProposal from "./ProjectProposal";
 import Loader from "./Loader";
-import { ProjectInterface } from "../store/valueStore";
 
 function ProjectsContainer() {
   const token = useAuth();
