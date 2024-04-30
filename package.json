@@ -13,6 +13,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^4.30.10",
     "@clerk/themes": "^1.7.12",
+    "@vercel/analytics": "^1.2.2",
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
