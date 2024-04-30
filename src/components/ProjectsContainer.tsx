@@ -18,22 +18,26 @@ function ProjectsContainer() {
     }));
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
-  // Dentro de ProjectsContainer
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await projectsService.getTodayProjects(currentPage);
 
         if (
-          response?.data.length > 0 &&
+          response?.data.projects.length > 0 &&
           !todayProjects.some((project) =>
-            response?.data.some(
+            response?.data.projects.some(
               (newProject: { name: string }) => newProject.name === project.name
             )
           )
         ) {
-          setTodayProjects((prevItems) => [...prevItems, ...response?.data]);
+          setTodayProjects((prevItems) => [
+            ...prevItems,
+            ...response?.data.projects,
+          ]);
+          setTotalPages(response?.data.total_pages);
         }
       } catch (error) {
         console.log(error);
@@ -91,13 +95,14 @@ function ProjectsContainer() {
                 ))}
               </>
             )}
-
-            <button
-              onClick={handleShowMore}
-              className="bg-[#FFD59A] border-[1px] border-[#A56021]  py-2 px-4 rounded-md mt-5 hover:bg-[#A56021] hover:text-white transition-all"
-            >
-              Mostrar más
-            </button>
+            {currentPage < totalPages ? (
+              <button
+                onClick={handleShowMore}
+                className="bg-[#FFD59A] border-[1px] border-[#A56021]  py-2 px-4 rounded-md mt-5 hover:bg-[#A56021] hover:text-white transition-all"
+              >
+                Mostrar más
+              </button>
+            ) : null}
           </div>
         </main>
       ) : (
