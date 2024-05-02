@@ -17,6 +17,8 @@ function ProjectProposal() {
   const onHandleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    toast.error("Esta funcionalidad está deshabilitada por el momento.");
+
     if (data) {
       try {
         const token = await getToken();
@@ -35,7 +37,7 @@ function ProjectProposal() {
             category: "fullstack",
             type: false,
           });
-          toast.success("Proyecto enviado correctamente.");
+          toast.error("Esta funcionalidad está deshabilitada por el momento.");
         }
       } catch (error) {
         console.log(error);
